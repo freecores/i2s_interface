@@ -33,7 +33,7 @@
 ---- This source is distributed in the hope that it will be       ----
 ---- useful, but WITHOUT ANY WARRANTY; without even the implied   ----
 ---- warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR      ----
----- PURPOSE. See the GNU General Public License for more details.----                                          
+---- PURPOSE. See the GNU General Public License for more details.----
 ----                                                              ----
 ---- You should have received a copy of the GNU General           ----
 ---- Public License along with this source; if not, download it   ----
@@ -44,6 +44,9 @@
 -- CVS Revision History
 --
 -- $Log: not supported by cvs2svn $
+-- Revision 1.1  2004/08/04 14:30:14  gedra
+-- Transmitter top level, master mode.
+--
 --
 --
 
@@ -85,7 +88,8 @@ architecture rtl of tx_i2s_topm is
   signal config_bits : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal intmask_bits, intmask_dout: std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal intmask_rd, intmask_wr: std_logic;
-  signal intstat_dout, intstat_events: std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal intstat_events: std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal intstat_dout: std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal intstat_rd, intstat_wr : std_logic;
   signal evt_hsbf, evt_lsbf : std_logic;
   signal mem_wr, mem_rd: std_logic;
@@ -252,7 +256,6 @@ begin
       conf_res => conf_res,
       conf_ratio => conf_ratio,
       conf_swap => conf_tswap,
-      conf_inten => conf_tinten,
       conf_en => conf_txen,
       i2s_sd_i => zero,
       i2s_sck_i => zero,

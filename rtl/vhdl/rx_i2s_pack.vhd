@@ -32,7 +32,7 @@
 ---- This source is distributed in the hope that it will be       ----
 ---- useful, but WITHOUT ANY WARRANTY; without even the implied   ----
 ---- warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR      ----
----- PURPOSE. See the GNU General Public License for more details.----                                          
+---- PURPOSE. See the GNU General Public License for more details.----
 ----                                                              ----
 ---- You should have received a copy of the GNU General           ----
 ---- Public License along with this source; if not, download it   ----
@@ -43,6 +43,9 @@
 -- CVS Revision History
 --
 -- $Log: not supported by cvs2svn $
+-- Revision 1.1  2004/08/04 14:28:54  gedra
+-- Receiver component declarations.
+--
 --
 --
  
@@ -142,13 +145,12 @@ package rx_i2s_pack is
       conf_res: in std_logic_vector(5 downto 0);  -- sample resolution
       conf_ratio: in std_logic_vector(7 downto 0); -- clock divider ratio
       conf_swap: in std_logic;            -- left/right sample order
-      conf_inten: in std_logic;           -- interrupt enable
       conf_en: in std_logic;              -- transmitter/recevier enable
       i2s_sd_i: in std_logic;             -- I2S serial data input
       i2s_sck_i: in std_logic;            -- I2S clock input
       i2s_ws_i: in std_logic;             -- I2S word select input
       sample_dat_i: in std_logic_vector(DATA_WIDTH - 1 downto 0);  -- audio data
-      sample_dat_o: out std_logic_vector(DATA_WIDTH - 1 downto 0);  -- audio data
+      sample_dat_o: out std_logic_vector(DATA_WIDTH - 1 downto 0); -- audio data
       mem_rdwr: out std_logic;            -- sample buffer read/write
       sample_addr: out std_logic_vector(ADDR_WIDTH - 2 downto 0);  -- address
       evt_hsbf: out std_logic;            -- higher sample buf empty event

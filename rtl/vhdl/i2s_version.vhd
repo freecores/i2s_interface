@@ -33,7 +33,7 @@
 ---- This source is distributed in the hope that it will be       ----
 ---- useful, but WITHOUT ANY WARRANTY; without even the implied   ----
 ---- warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR      ----
----- PURPOSE. See the GNU General Public License for more details.----                                          
+---- PURPOSE. See the GNU General Public License for more details.----
 ----                                                              ----
 ---- You should have received a copy of the GNU General           ----
 ---- Public License along with this source; if not, download it   ----
@@ -44,6 +44,9 @@
 -- CVS Revision History
 --
 -- $Log: not supported by cvs2svn $
+-- Revision 1.1  2004/08/03 18:49:03  gedra
+-- Version register.
+--
 --
 --
 
@@ -57,7 +60,7 @@ entity i2s_version is
            IS_MASTER: integer);
   port (
     ver_rd: in std_logic; -- version register read
-    ver_dout: out std_logic_vector(DATA_WIDTH - 1 downto 0));
+    ver_dout: out std_logic_vector(DATA_WIDTH - 1 downto 0));  -- reg. contents
 end i2s_version;
 
 architecture rtl of i2s_version is

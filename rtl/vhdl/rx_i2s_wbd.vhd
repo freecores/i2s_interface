@@ -32,7 +32,7 @@
 ---- This source is distributed in the hope that it will be       ----
 ---- useful, but WITHOUT ANY WARRANTY; without even the implied   ----
 ---- warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR      ----
----- PURPOSE. See the GNU General Public License for more details.----                                          
+---- PURPOSE. See the GNU General Public License for more details.----
 ----                                                              ----
 ---- You should have received a copy of the GNU General           ----
 ---- Public License along with this source; if not, download it   ----
@@ -43,6 +43,9 @@
 -- CVS Revision History
 --
 -- $Log: not supported by cvs2svn $
+-- Revision 1.1  2004/08/03 18:50:29  gedra
+-- Receiver Wishbone cycle decoder.
+--
 --
 --
 
