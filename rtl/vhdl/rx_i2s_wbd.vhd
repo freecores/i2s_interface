@@ -43,6 +43,9 @@
 -- CVS Revision History
 --
 -- $Log: not supported by cvs2svn $
+-- Revision 1.2  2004/08/06 18:55:43  gedra
+-- De-linting.
+--
 -- Revision 1.1  2004/08/03 18:50:29  gedra
 -- Receiver Wishbone cycle decoder.
 --
@@ -194,19 +197,19 @@ begin
 -- read and write strobe generation
   
   version_rd <= '1' when wb_adr_i(3 downto 0) = REG_RXVERSION and ird = '1'
-                else '0';
+                and wb_adr_i(ADDR_WIDTH - 1) = '0' else '0';
   config_rd <= '1' when wb_adr_i(3 downto 0) = REG_RXCONFIG and ird = '1'
-               else '0';
+               and wb_adr_i(ADDR_WIDTH - 1) = '0' else '0';
   config_wr <= '1' when wb_adr_i(3 downto 0) = REG_RXCONFIG and iwr = '1'
-               else '0';
+               and wb_adr_i(ADDR_WIDTH - 1) = '0' else '0';
   intmask_rd <= '1' when wb_adr_i(3 downto 0) = REG_RXINTMASK and ird = '1'
-                else '0';
+                and wb_adr_i(ADDR_WIDTH - 1) = '0' else '0';
   intmask_wr <= '1' when wb_adr_i(3 downto 0) = REG_RXINTMASK and iwr = '1'
-                else '0';
+                and wb_adr_i(ADDR_WIDTH - 1) = '0' else '0';
   intstat_rd <= '1' when wb_adr_i(3 downto 0) = REG_RXINTSTAT and ird = '1'
-                else '0';
+                and wb_adr_i(ADDR_WIDTH - 1) = '0' else '0';
   intstat_wr <= '1' when wb_adr_i(3 downto 0) = REG_RXINTSTAT and iwr = '1'
-                else '0';
+                and wb_adr_i(ADDR_WIDTH - 1) = '0' else '0';
   mem_rd <= '1' when wb_adr_i(ADDR_WIDTH - 1) = '1' and ird = '1' else '0';
   
 end rtl;
