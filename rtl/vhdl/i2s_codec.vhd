@@ -33,7 +33,7 @@
 ---- This source is distributed in the hope that it will be       ----
 ---- useful, but WITHOUT ANY WARRANTY; without even the implied   ----
 ---- warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR      ----
----- PURPOSE. See the GNU General Public License for more details.----                                          
+---- PURPOSE. See the GNU General Public License for more details.----
 ----                                                              ----
 ---- You should have received a copy of the GNU General           ----
 ---- Public License along with this source; if not, download it   ----
@@ -44,6 +44,9 @@
 -- CVS Revision History
 --
 -- $Log: not supported by cvs2svn $
+-- Revision 1.1  2004/08/03 18:49:43  gedra
+-- I2S encoder/decoder.
+--
 --
 --
 
@@ -61,7 +64,6 @@ entity i2s_codec is
     conf_res: in std_logic_vector(5 downto 0);  -- sample resolution
     conf_ratio: in std_logic_vector(7 downto 0); -- clock divider ratio
     conf_swap: in std_logic;            -- left/right sample order
-    conf_inten: in std_logic;           -- interrupt enable
     conf_en: in std_logic;              -- transmitter/recevier enable
     i2s_sd_i: in std_logic;             -- I2S serial data input
     i2s_sck_i: in std_logic;            -- I2S clock input
@@ -339,6 +341,8 @@ begin
                     bit_cnt <= bit_cnt + 1;
                     if bit_cnt > bits_to_trx then
                       i2s_sd_o <= '0';
+                    else
+                      i2s_sd_o <= sample_dat_i(0);
                     end if;
                     -- transmitter address counter
                     imem_rdwr <= '1';
@@ -366,7 +370,7 @@ begin
                     if bit_cnt > bits_to_trx then
                       i2s_sd_o <= '0';
                     else
-                      i2s_sd_o <= sample_dat_i(bits_to_trx - bit_cnt);
+                      i2s_sd_o <= sample_dat_i(0);
                     end if;
                     if new_word = '1' then  -- transmitter address counter
                       imem_rdwr <= '1';
