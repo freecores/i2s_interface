@@ -44,6 +44,9 @@
 -- CVS Revision History
 --
 -- $Log: not supported by cvs2svn $
+-- Revision 1.2  2004/08/06 18:55:05  gedra
+-- Removed conf_inten, and fixed bug in transmitter master mode.
+--
 -- Revision 1.1  2004/08/03 18:49:43  gedra
 -- I2S encoder/decoder.
 --
@@ -370,7 +373,7 @@ begin
                     if bit_cnt > bits_to_trx then
                       i2s_sd_o <= '0';
                     else
-                      i2s_sd_o <= sample_dat_i(0);
+                      i2s_sd_o <= sample_dat_i(bits_to_trx - bit_cnt);
                     end if;
                     if new_word = '1' then  -- transmitter address counter
                       imem_rdwr <= '1';
